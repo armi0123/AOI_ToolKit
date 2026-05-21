@@ -25,6 +25,20 @@ namespace AOI_Tool.Tools
 
             return new Mat(context.CurrentImage, new Rect(x, y, w, h)).Clone();
         }
+        protected Mat GetInputImageFromSource(InspectionContext context)
+        {
+            if (ROI == null)
+                return context.SourceImage.Clone();
+
+            Rect roi = ROI.Value;
+
+            int x = Math.Clamp(roi.X, 0, context.SourceImage.Width - 1);
+            int y = Math.Clamp(roi.Y, 0, context.SourceImage.Height - 1);
+            int w = Math.Clamp(roi.Width, 1, context.SourceImage.Width - x);
+            int h = Math.Clamp(roi.Height, 1, context.SourceImage.Height - y);
+
+            return new Mat(context.SourceImage, new Rect(x, y, w, h)).Clone();
+        }
 
         protected Rect? GetSafeROI(InspectionContext context)
         {

@@ -43,12 +43,20 @@
             checkUseThreshold = new CheckBox();
             checkUseROI = new CheckBox();
             pictureBoxImage = new PictureBox();
+            labelFeatureName = new Label();
+            textFeatureName = new TextBox();
+            labelCanny1 = new Label();
+            numCanny1 = new NumericUpDown();
+            labelCanny2 = new Label();
+            numCanny2 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)numX).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numY).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numW).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numH).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numThreshold).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numCanny1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numCanny2).BeginInit();
             SuspendLayout();
             // 
             // labelX
@@ -122,7 +130,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(8, 407);
+            btnSave.Location = new Point(6, 487);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(82, 31);
             btnSave.TabIndex = 8;
@@ -132,7 +140,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(117, 407);
+            btnCancel.Location = new Point(117, 487);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(80, 30);
             btnCancel.TabIndex = 9;
@@ -143,7 +151,7 @@
             // labelThreshold
             // 
             labelThreshold.AutoSize = true;
-            labelThreshold.Location = new Point(10, 210);
+            labelThreshold.Location = new Point(6, 208);
             labelThreshold.Name = "labelThreshold";
             labelThreshold.Size = new Size(54, 19);
             labelThreshold.TabIndex = 10;
@@ -151,7 +159,7 @@
             // 
             // numThreshold
             // 
-            numThreshold.Location = new Point(72, 208);
+            numThreshold.Location = new Point(66, 206);
             numThreshold.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numThreshold.Name = "numThreshold";
             numThreshold.Size = new Size(125, 27);
@@ -170,7 +178,7 @@
             // checkUseROI
             // 
             checkUseROI.AutoSize = true;
-            checkUseROI.Location = new Point(10, 166);
+            checkUseROI.Location = new Point(12, 177);
             checkUseROI.Name = "checkUseROI";
             checkUseROI.Size = new Size(117, 23);
             checkUseROI.TabIndex = 13;
@@ -179,18 +187,76 @@
             // 
             // pictureBoxImage
             // 
-            pictureBoxImage.Location = new Point(243, 15);
+            pictureBoxImage.Location = new Point(320, 6);
             pictureBoxImage.Name = "pictureBoxImage";
-            pictureBoxImage.Size = new Size(552, 432);
+            pictureBoxImage.Size = new Size(562, 522);
             pictureBoxImage.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxImage.TabIndex = 14;
             pictureBoxImage.TabStop = false;
+            // 
+            // labelFeatureName
+            // 
+            labelFeatureName.AutoSize = true;
+            labelFeatureName.Location = new Point(6, 276);
+            labelFeatureName.Name = "labelFeatureName";
+            labelFeatureName.Size = new Size(103, 19);
+            labelFeatureName.TabIndex = 15;
+            labelFeatureName.Text = "FeatureName";
+            // 
+            // textFeatureName
+            // 
+            textFeatureName.Location = new Point(117, 270);
+            textFeatureName.Name = "textFeatureName";
+            textFeatureName.Size = new Size(156, 27);
+            textFeatureName.TabIndex = 16;
+            // 
+            // labelCanny1
+            // 
+            labelCanny1.AutoSize = true;
+            labelCanny1.Location = new Point(14, 308);
+            labelCanny1.Name = "labelCanny1";
+            labelCanny1.Size = new Size(62, 19);
+            labelCanny1.TabIndex = 17;
+            labelCanny1.Text = "Canny1";
+            // 
+            // numCanny1
+            // 
+            numCanny1.Location = new Point(93, 305);
+            numCanny1.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numCanny1.Name = "numCanny1";
+            numCanny1.Size = new Size(104, 27);
+            numCanny1.TabIndex = 18;
+            numCanny1.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            // 
+            // labelCanny2
+            // 
+            labelCanny2.AutoSize = true;
+            labelCanny2.Location = new Point(14, 344);
+            labelCanny2.Name = "labelCanny2";
+            labelCanny2.Size = new Size(62, 19);
+            labelCanny2.TabIndex = 19;
+            labelCanny2.Text = "Canny2";
+            // 
+            // numCanny2
+            // 
+            numCanny2.Location = new Point(93, 341);
+            numCanny2.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numCanny2.Name = "numCanny2";
+            numCanny2.Size = new Size(104, 27);
+            numCanny2.TabIndex = 20;
+            numCanny2.Value = new decimal(new int[] { 150, 0, 0, 0 });
             // 
             // ToolSettingForm
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(884, 529);
+            Controls.Add(numCanny2);
+            Controls.Add(labelCanny2);
+            Controls.Add(numCanny1);
+            Controls.Add(labelCanny1);
+            Controls.Add(textFeatureName);
+            Controls.Add(labelFeatureName);
             Controls.Add(pictureBoxImage);
             Controls.Add(checkUseROI);
             Controls.Add(checkUseThreshold);
@@ -214,6 +280,8 @@
             ((System.ComponentModel.ISupportInitialize)numH).EndInit();
             ((System.ComponentModel.ISupportInitialize)numThreshold).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numCanny1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numCanny2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -235,5 +303,11 @@
         private CheckBox checkUseThreshold;
         private CheckBox checkUseROI;
         private PictureBox pictureBoxImage;
+        private Label labelFeatureName;
+        private TextBox textFeatureName;
+        private Label labelCanny1;
+        private NumericUpDown numCanny1;
+        private Label labelCanny2;
+        private NumericUpDown numCanny2;
     }
 }

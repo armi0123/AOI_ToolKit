@@ -31,6 +31,8 @@ namespace AOI_Tool.Forms
             listBoxAvailable.Items.Add("特徵角檢測");
             listBoxAvailable.Items.Add("BarCode檢測");
             listBoxAvailable.Items.Add("ROI設定");
+            listBoxAvailable.Items.Add("線條檢測");
+            listBoxAvailable.Items.Add("擬合線檢測");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -64,6 +66,14 @@ namespace AOI_Tool.Forms
 
                 case "ROI設定":
                     pipeline.AddTool(new RoiTool(new Rect(50, 50, 200, 200)));
+                    break;
+
+                case "線條檢測":
+                    pipeline.AddTool(new LineDetectTool());
+                    break;
+
+                case "擬合線檢測":
+                    pipeline.AddTool(new LineFitTool());
                     break;
             }
 

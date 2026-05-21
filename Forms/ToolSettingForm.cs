@@ -221,6 +221,29 @@ namespace AOI_Tool.Forms
                 checkUseThreshold.Checked = barCodeTool.UseThreshold;
                 numThreshold.Value = barCodeTool.ThresholdValue;
             }
+
+            // 先隱藏 LineFit 參數
+            labelFeatureName.Visible = false;
+            textFeatureName.Visible = false;
+            labelCanny1.Visible = false;
+            numCanny1.Visible = false;
+            labelCanny2.Visible = false;
+            numCanny2.Visible = false;
+
+            // LineFitTool 參數
+            if (tool is LineFitTool lineFitTool)
+            {
+                labelFeatureName.Visible = true;
+                textFeatureName.Visible = true;
+                labelCanny1.Visible = true;
+                numCanny1.Visible = true;
+                labelCanny2.Visible = true;
+                numCanny2.Visible = true;
+
+                textFeatureName.Text = lineFitTool.FeatureName;
+                numCanny1.Value = lineFitTool.CannyThreshold1;
+                numCanny2.Value = lineFitTool.CannyThreshold2;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -251,6 +274,13 @@ namespace AOI_Tool.Forms
             {
                 barCodeTool.UseThreshold = checkUseThreshold.Checked;
                 barCodeTool.ThresholdValue = (int)numThreshold.Value;
+            }
+
+            if (tool is LineFitTool lineFitTool)
+            {
+                lineFitTool.FeatureName = textFeatureName.Text;
+                lineFitTool.CannyThreshold1 = (int)numCanny1.Value;
+                lineFitTool.CannyThreshold2 = (int)numCanny2.Value;
             }
 
             DialogResult = DialogResult.OK;

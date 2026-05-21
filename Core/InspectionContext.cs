@@ -42,5 +42,26 @@ namespace AOI_Tool.Core
 
             Message += $"{toolName}: {message}\r\n";
         }
+        public List<FeatureResult> Features { get; set; } = new();
+
+        public void AddFeature(string name, string type, object data)
+        {
+            Features.Add(new FeatureResult
+            {
+                Name = name,
+                Type = type,
+                Data = data
+            });
+        }
+
+        public T? GetFeature<T>(string name) where T : class
+        {
+            var feature = Features.FirstOrDefault(f => f.Name == name);
+
+            if (feature == null)
+                return null;
+
+            return feature.Data as T;
+        }
     }
 }
