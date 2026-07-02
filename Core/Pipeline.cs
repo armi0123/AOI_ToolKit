@@ -22,7 +22,7 @@ namespace AOI_Tool.Core
         {
             Tools.Clear();
         }
-
+        // 執行整個 Pipeline
         public InspectionContext Run(Mat input)
         {
             InspectionContext context = new InspectionContext(input);

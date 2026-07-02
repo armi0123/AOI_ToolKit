@@ -118,7 +118,7 @@
             Controls.Add(btnRun);
             Controls.Add(btnLoad);
             Name = "MainForm";
-            Text = "要你命4000";
+            Text = "AOI ToolKit";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxSrc).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxResult).EndInit();
